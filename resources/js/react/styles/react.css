@@ -1,0 +1,1081 @@
+#nora-react-root {
+    min-height: 100vh;
+}
+
+.react-luxury-shell {
+    min-height: 100vh;
+    color: #17120d;
+    background:
+        radial-gradient(circle at 12% 8%, rgba(212, 175, 55, .12), transparent 28%),
+        radial-gradient(circle at 88% 14%, rgba(244, 223, 155, .11), transparent 26%),
+        linear-gradient(180deg, #fffaf0 0%, #f7efe1 45%, #fffaf3 100%);
+    overflow-x: hidden;
+}
+
+.react-luxury-shell a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.react-nav {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 50;
+    padding: 14px clamp(12px, 3vw, 42px);
+    transition: transform .3s ease;
+}
+
+.react-nav-inner {
+    width: min(1320px, 100%);
+    margin: auto;
+    display: grid;
+    grid-template-columns: 132px 1fr auto auto;
+    gap: 20px;
+    align-items: center;
+    border: 1px solid rgba(255, 244, 216, .14);
+    border-radius: 999px;
+    padding: 9px 12px 9px 18px;
+    color: #fffaf0;
+    background: linear-gradient(120deg, rgba(7, 6, 5, .62), rgba(7, 6, 5, .24));
+    box-shadow: 0 18px 60px rgba(0, 0, 0, .18);
+    backdrop-filter: blur(22px);
+    transition: background .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+
+.react-nav.is-scrolled .react-nav-inner {
+    border-color: rgba(212, 175, 55, .28);
+    background: rgba(7, 6, 5, .78);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, .26);
+}
+
+.react-logo img {
+    width: 112px;
+    filter: drop-shadow(0 8px 24px rgba(212, 175, 55, .24));
+}
+
+.react-links {
+    display: flex;
+    justify-content: center;
+    gap: clamp(14px, 2vw, 28px);
+    font-size: .72rem;
+    font-weight: 900;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+}
+
+.react-links a {
+    position: relative;
+    color: rgba(255, 250, 240, .84);
+    transition: color .22s ease, transform .22s ease;
+}
+
+.react-links a::after {
+    position: absolute;
+    right: 0;
+    bottom: -7px;
+    left: 0;
+    height: 2px;
+    content: "";
+    background: linear-gradient(90deg, transparent, #d4af37, transparent);
+    transform: scaleX(0);
+    transition: transform .25s ease;
+}
+
+.react-links a:hover,
+.react-links a.active {
+    color: #f4df9b;
+    transform: translateY(-1px);
+}
+
+.react-links a:hover::after,
+.react-links a.active::after {
+    transform: scaleX(1);
+}
+
+.react-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.react-nav-actions a:not(.react-nav-cta) {
+    position: relative;
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border: 1px solid rgba(244, 223, 155, .28);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .06);
+    transition: transform .22s ease, box-shadow .22s ease;
+}
+
+.react-nav-actions span {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    min-width: 18px;
+    height: 18px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: #17120d;
+    background: #f4df9b;
+    font-size: .65rem;
+    font-weight: 900;
+}
+
+.react-nav-actions a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 35px rgba(212, 175, 55, .2);
+}
+
+.react-nav-cta,
+.react-gold-button {
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 44px;
+    border: 1px solid rgba(255, 244, 216, .34);
+    border-radius: 999px;
+    padding: 12px 18px;
+    color: #1b140b;
+    background: linear-gradient(135deg, #fff1b9, #d4af37 44%, #8a631b);
+    box-shadow: 0 18px 44px rgba(212, 175, 55, .26);
+    font-size: .76rem;
+    font-weight: 950;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    transition: transform .25s ease, box-shadow .25s ease, opacity .25s ease;
+}
+
+.react-gold-button:hover,
+.react-nav-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 24px 58px rgba(212, 175, 55, .34);
+}
+
+.react-gold-button:disabled {
+    cursor: not-allowed;
+    opacity: .55;
+}
+
+.react-menu-button {
+    display: none;
+    border: 1px solid rgba(244, 223, 155, .28);
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    color: #fffaf0;
+    background: rgba(255, 255, 255, .06);
+}
+
+.react-hero {
+    position: relative;
+    min-height: 100svh;
+    overflow: hidden;
+    isolation: isolate;
+    background: #050403;
+}
+
+.react-hero-swiper,
+.react-hero-slide {
+    min-height: 100svh;
+}
+
+.react-hero-slide {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 330px);
+    align-items: center;
+    gap: clamp(28px, 7vw, 90px);
+    padding: 140px clamp(22px, 7vw, 110px) 100px;
+    background-size: cover;
+    background-position: center;
+}
+
+.react-hero-slide::after {
+    position: absolute;
+    inset: auto 0 0;
+    height: 180px;
+    content: "";
+    background: linear-gradient(180deg, transparent, #fffaf0);
+}
+
+.react-hero-copy,
+.react-hero-jewel {
+    position: relative;
+    z-index: 2;
+}
+
+.react-hero-copy span,
+.react-section-heading span,
+.react-intro > span,
+.react-editorial span,
+.react-page-hero span {
+    color: #f4df9b;
+    display: inline-block;
+    margin-bottom: 18px;
+    font-size: .75rem;
+    font-weight: 950;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    text-shadow: 0 0 28px rgba(212, 175, 55, .3);
+}
+
+.react-hero-copy h1 {
+    max-width: 920px;
+    margin: 0;
+    background: linear-gradient(105deg, #fff9e8, #d4af37 32%, #fff2b8 52%, #9c7620 72%, #fff8df);
+    background-size: 220% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(3.5rem, 9vw, 8.8rem);
+    font-weight: 400;
+    line-height: .92;
+    animation: reactGoldText 6s ease-in-out infinite;
+}
+
+.react-hero-copy p {
+    max-width: 590px;
+    color: rgba(255, 250, 240, .86);
+    font-size: clamp(1.04rem, 1.7vw, 1.32rem);
+    line-height: 1.85;
+}
+
+.react-hero-jewel {
+    border: 1px solid rgba(244, 223, 155, .32);
+    border-radius: 26px;
+    padding: 14px;
+    color: #fff4d8;
+    background: linear-gradient(160deg, rgba(255, 255, 255, .18), rgba(255, 255, 255, .06));
+    box-shadow: 0 38px 120px rgba(0, 0, 0, .34);
+    backdrop-filter: blur(18px);
+}
+
+.react-hero-jewel img {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.react-hero-jewel strong,
+.react-hero-jewel small {
+    display: block;
+    margin-top: 10px;
+}
+
+.react-hero-jewel small {
+    color: rgba(255, 250, 240, .7);
+}
+
+.react-particles {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.react-particles i {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #d4af37;
+    box-shadow: 0 0 30px rgba(212, 175, 55, .9);
+    animation: reactParticle 7s ease-in-out infinite;
+}
+
+.react-particles i:nth-child(1) { left: 12%; top: 28%; }
+.react-particles i:nth-child(2) { left: 72%; top: 18%; animation-delay: .8s; }
+.react-particles i:nth-child(3) { left: 82%; top: 62%; animation-delay: 1.6s; }
+.react-particles i:nth-child(4) { left: 36%; top: 76%; animation-delay: 2.4s; }
+.react-particles i:nth-child(5) { left: 56%; top: 36%; animation-delay: 3.2s; }
+
+.react-scroll-cue {
+    position: absolute;
+    z-index: 4;
+    left: 50%;
+    bottom: 28px;
+    width: 34px;
+    height: 54px;
+    border: 1px solid rgba(244, 223, 155, .45);
+    border-radius: 999px;
+    transform: translateX(-50%);
+}
+
+.react-scroll-cue span {
+    display: block;
+    width: 5px;
+    height: 5px;
+    margin: 10px auto;
+    border-radius: 50%;
+    background: #f4df9b;
+    animation: reactScrollDot 1.7s ease-in-out infinite;
+}
+
+.react-section,
+.react-about-grid,
+.react-contact-grid,
+.react-detail,
+.react-cart,
+.react-gallery-grid,
+.react-editorial,
+.react-trust,
+.react-testimonials {
+    width: min(1240px, calc(100% - 38px));
+    margin: 0 auto;
+    padding: clamp(70px, 9vw, 120px) 0;
+}
+
+.react-intro {
+    text-align: center;
+}
+
+.react-intro h2,
+.react-section-heading h2,
+.react-editorial h2,
+.react-page-hero h1,
+.react-about-grid h2,
+.react-detail-copy h1 {
+    margin: 0;
+    color: #1b140b;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.25rem, 5.4vw, 5.1rem);
+    font-weight: 400;
+    line-height: 1.02;
+    text-wrap: balance;
+}
+
+.react-intro p,
+.react-editorial p,
+.react-about-grid p,
+.react-detail-copy p,
+.react-description {
+    max-width: 780px;
+    margin: 22px auto;
+    color: rgba(23, 18, 13, .68);
+    font-size: 1.06rem;
+    line-height: 1.9;
+}
+
+.react-metrics,
+.react-collection-grid,
+.react-product-grid,
+.react-trust,
+.react-testimonials {
+    display: grid;
+    gap: 22px;
+}
+
+.react-metrics {
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 28px;
+}
+
+.react-metrics div,
+.react-trust article,
+.react-testimonials article,
+.react-contact-card,
+.react-form,
+.react-cart-summary {
+    border: 1px solid rgba(212, 175, 55, .2);
+    border-radius: 24px;
+    padding: 26px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, .84), rgba(255, 244, 216, .48));
+    box-shadow: 0 28px 90px rgba(18, 12, 4, .16);
+    backdrop-filter: blur(18px);
+}
+
+.react-metrics strong {
+    display: block;
+    color: #d4af37;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 2.2rem;
+    font-weight: 400;
+}
+
+.react-section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 22px;
+    margin-bottom: 34px;
+}
+
+.react-section-heading a {
+    color: #9c7620;
+    font-weight: 900;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.react-collection-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.react-collection-card {
+    position: relative;
+    min-height: 410px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    overflow: hidden;
+    border: 1px solid rgba(244, 223, 155, .28);
+    border-radius: 26px;
+    padding: 30px;
+    color: #fffaf0;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 30px 100px rgba(24, 15, 5, .2);
+    transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.react-collection-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 42px 120px rgba(24, 15, 5, .28);
+}
+
+.react-collection-card h3 {
+    margin: 8px 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+
+.react-product-grid {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.react-product-grid.compact {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.react-product-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, .18);
+    border-radius: 24px;
+    background: linear-gradient(#fff, #fff) padding-box, linear-gradient(145deg, rgba(212,175,55,.48), transparent, rgba(244,223,155,.48)) border-box;
+    box-shadow: 0 20px 70px rgba(32, 20, 8, .11);
+    transition: transform .32s ease, box-shadow .32s ease;
+}
+
+.react-product-card:hover {
+    transform: translateY(-9px) rotateX(2deg) rotateY(-2deg);
+    box-shadow: 0 34px 100px rgba(25, 15, 5, .22);
+}
+
+.react-product-image {
+    position: relative;
+    display: block;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: radial-gradient(circle at 50% 28%, rgba(244,223,155,.35), transparent 38%), linear-gradient(145deg, #f8efe0, #fffaf1);
+}
+
+.react-product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .55s ease;
+}
+
+.react-product-card:hover img {
+    transform: scale(1.08);
+}
+
+.react-product-image em {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    border-radius: 999px;
+    padding: 8px 11px;
+    color: #17120d;
+    background: linear-gradient(135deg, #fff4c4, #d4af37);
+    font-size: .68rem;
+    font-style: normal;
+    font-weight: 950;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.shine {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 18%, rgba(255,255,255,.62) 48%, transparent 70%);
+    transform: translateX(-120%);
+    transition: transform .7s ease;
+}
+
+.react-product-card:hover .shine {
+    transform: translateX(120%);
+}
+
+.react-product-info {
+    padding: 22px;
+}
+
+.react-product-info > span {
+    color: #9d6b61;
+    font-size: .72rem;
+    font-weight: 900;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+}
+
+.react-product-info h3 {
+    margin: 8px 0 10px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.35rem;
+    font-weight: 400;
+}
+
+.react-price {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    color: #d4af37;
+    font-weight: 900;
+}
+
+.react-price del {
+    color: rgba(23,18,13,.44);
+}
+
+.in-stock,
+.out-stock {
+    display: inline-flex;
+    width: fit-content;
+    margin-top: 10px;
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-size: .72rem;
+    font-weight: 950;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.in-stock { color: #245238; background: #e8f5ec; }
+.out-stock { color: #8a1f1f; background: #fde8e8; }
+
+.react-card-actions {
+    display: flex;
+    gap: 10px;
+    padding: 0 22px 22px;
+}
+
+.react-card-actions button,
+.react-wish-button,
+.qty-stepper button,
+.react-cart-list button {
+    border: 1px solid rgba(212,175,55,.24);
+    border-radius: 999px;
+    padding: 10px 14px;
+    background: #fffaf0;
+    transition: transform .22s ease, background .22s ease;
+}
+
+.react-card-actions button:hover,
+.react-wish-button:hover,
+.qty-stepper button:hover,
+.react-cart-list button:hover {
+    transform: translateY(-2px);
+    background: #f4df9b;
+}
+
+.react-card-actions button:last-child {
+    flex: 1;
+}
+
+.react-card-actions button.active,
+.react-wish-button.active {
+    color: #fffaf0;
+    background: #17120d;
+}
+
+.react-page-hero {
+    position: relative;
+    min-height: 62vh;
+    display: grid;
+    place-items: end start;
+    overflow: hidden;
+    padding: 150px clamp(22px, 7vw, 110px) 76px;
+    color: #fffaf0;
+    background: linear-gradient(95deg, rgba(5,4,3,.9), rgba(24,15,4,.48)), radial-gradient(circle at 78% 28%, rgba(212,175,55,.28), transparent 30%), url('https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=1800&q=85') center / cover;
+}
+
+.react-page-hero::after {
+    position: absolute;
+    inset: auto 0 0;
+    height: 140px;
+    content: "";
+    background: linear-gradient(180deg, transparent, #fffaf0);
+}
+
+.react-page-hero h1,
+.react-page-hero span {
+    position: relative;
+    z-index: 1;
+    color: #fff4d8;
+}
+
+.react-product-tools form {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    border: 1px solid rgba(212,175,55,.22);
+    border-radius: 999px;
+    padding: 8px 8px 8px 18px;
+    background: rgba(255,255,255,.78);
+    box-shadow: 0 22px 70px rgba(18,12,4,.12);
+}
+
+.react-product-tools input,
+.react-form input,
+.react-form textarea,
+.qty-stepper,
+.react-cart-list input {
+    width: 100%;
+    border: 1px solid rgba(31,25,18,.14);
+    border-radius: 16px;
+    padding: 13px 14px;
+    outline: none;
+    background: #fff;
+}
+
+.react-about-grid,
+.react-contact-grid,
+.react-detail {
+    display: grid;
+    grid-template-columns: .95fr 1.05fr;
+    gap: clamp(30px, 6vw, 82px);
+    align-items: center;
+}
+
+.react-about-image,
+.react-detail-media {
+    overflow: hidden;
+    border: 1px solid rgba(212,175,55,.2);
+    border-radius: 26px;
+    background: radial-gradient(circle at 50% 30%, rgba(212,175,55,.18), transparent 45%), #fff8ea;
+    box-shadow: 0 28px 90px rgba(18,12,4,.16);
+}
+
+.react-about-image img,
+.react-detail-media > img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+}
+
+.react-detail-media > div {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    padding: 12px;
+}
+
+.react-detail-media > div img {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 14px;
+    object-fit: cover;
+}
+
+.react-detail-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 24px 0;
+}
+
+.qty-stepper {
+    width: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 5px;
+}
+
+.qty-stepper button {
+    display: grid;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    padding: 0;
+}
+
+.react-outline-button {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #17120d;
+    border-radius: 999px;
+    padding: 12px 18px;
+    font-weight: 900;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    transition: background .22s ease, color .22s ease, transform .22s ease;
+}
+
+.react-outline-button:hover {
+    color: #fffaf0;
+    background: #17120d;
+    transform: translateY(-2px);
+}
+
+.react-contact-grid {
+    align-items: stretch;
+}
+
+.react-contact-card div {
+    display: flex;
+    gap: 12px;
+    margin-top: 18px;
+    color: rgba(23,18,13,.74);
+}
+
+.react-form {
+    display: grid;
+    gap: 14px;
+}
+
+.react-notice {
+    border-radius: 16px;
+    padding: 12px 14px;
+    font-weight: 800;
+}
+
+.react-notice.success { color: #245238; background: #e8f5ec; }
+.react-notice.error { color: #8a1f1f; background: #fde8e8; }
+
+.react-cart {
+    display: grid;
+    grid-template-columns: 1fr minmax(280px, 360px);
+    gap: 24px;
+    align-items: start;
+}
+
+.react-cart-list {
+    display: grid;
+    gap: 14px;
+}
+
+.react-cart-list article {
+    display: grid;
+    grid-template-columns: 90px 1fr 80px auto auto;
+    gap: 16px;
+    align-items: center;
+    border: 1px solid rgba(212,175,55,.2);
+    border-radius: 22px;
+    padding: 14px;
+    background: rgba(255,255,255,.8);
+    box-shadow: 0 20px 70px rgba(18,12,4,.12);
+}
+
+.react-cart-list img {
+    width: 90px;
+    height: 90px;
+    border-radius: 18px;
+    object-fit: cover;
+}
+
+.react-cart-summary {
+    position: sticky;
+    top: 110px;
+}
+
+.react-cart-summary div {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    border-bottom: 1px solid rgba(212,175,55,.18);
+    padding: 12px 0;
+}
+
+.react-gallery-grid {
+    column-count: 3;
+    column-gap: 18px;
+}
+
+.react-gallery-grid img {
+    width: 100%;
+    break-inside: avoid;
+    margin-bottom: 18px;
+    border: 1px solid rgba(212,175,55,.2);
+    border-radius: 24px;
+    box-shadow: 0 22px 70px rgba(18,12,4,.14);
+}
+
+.react-editorial {
+    display: grid;
+    grid-template-columns: .92fr 1.08fr;
+    gap: clamp(28px, 6vw, 82px);
+    align-items: center;
+}
+
+.react-editorial-images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    min-height: 430px;
+}
+
+.react-editorial-images a {
+    overflow: hidden;
+    border: 1px solid rgba(212,175,55,.28);
+    border-radius: 24px;
+    box-shadow: 0 28px 90px rgba(18,12,4,.16);
+    transform: rotate(var(--r, 0deg)) translateY(var(--y, 0));
+    transition: transform .35s ease;
+}
+
+.react-editorial-images a:nth-child(1) { --r: -8deg; --y: 36px; }
+.react-editorial-images a:nth-child(2) { --r: 3deg; --y: -28px; z-index: 2; }
+.react-editorial-images a:nth-child(3) { --r: 8deg; --y: 42px; }
+.react-editorial-images a:hover { transform: rotate(0deg) translateY(-10px) scale(1.03); }
+
+.react-editorial-images img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+}
+
+.react-trust,
+.react-testimonials {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.react-trust h3 {
+    margin: 16px 0 10px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.7rem;
+    font-weight: 400;
+}
+
+.react-testimonials article p {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.45rem;
+    line-height: 1.35;
+}
+
+.react-footer {
+    display: grid;
+    grid-template-columns: 1.2fr .7fr .9fr;
+    gap: 34px;
+    padding: 64px clamp(22px, 7vw, 90px);
+    color: rgba(255,250,240,.8);
+    background: radial-gradient(circle at 18% 15%, rgba(212,175,55,.18), transparent 28%), linear-gradient(135deg, #050403, #17100a);
+}
+
+.react-footer img {
+    width: 150px;
+}
+
+.react-footer h3 {
+    color: #f4df9b;
+    font-size: .78rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+}
+
+.react-footer > div {
+    display: grid;
+    align-content: start;
+    gap: 12px;
+}
+
+.react-footer p {
+    display: flex;
+    gap: 10px;
+    line-height: 1.8;
+}
+
+.react-socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.react-socials a {
+    display: inline-flex;
+    gap: 8px;
+    border: 1px solid rgba(244,223,155,.22);
+    border-radius: 999px;
+    padding: 10px 14px;
+    background: rgba(255,255,255,.05);
+}
+
+.react-page-message {
+    min-height: 40vh;
+    display: grid;
+    gap: 18px;
+    place-items: center;
+    padding: 140px 20px 70px;
+    text-align: center;
+}
+
+.skeleton-grid {
+    width: min(1200px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 150px 0 70px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.skeleton-card {
+    min-height: 280px;
+    border-radius: 24px;
+    background: linear-gradient(100deg, rgba(255,255,255,.6), rgba(244,223,155,.34), rgba(255,255,255,.6));
+    background-size: 220% auto;
+    animation: reactSkeleton 1.6s ease-in-out infinite;
+}
+
+@keyframes reactGoldText {
+    0%, 100% { background-position: 0% center; }
+    50% { background-position: 100% center; }
+}
+
+@keyframes reactParticle {
+    0%, 100% { transform: translate3d(0,0,0) scale(1); opacity: .45; }
+    50% { transform: translate3d(24px,-38px,0) scale(1.8); opacity: .95; }
+}
+
+@keyframes reactScrollDot {
+    0% { transform: translateY(0); opacity: .4; }
+    50% { transform: translateY(22px); opacity: 1; }
+    100% { transform: translateY(0); opacity: .4; }
+}
+
+@keyframes reactSkeleton {
+    0% { background-position: 0% center; }
+    100% { background-position: 220% center; }
+}
+
+@media (max-width: 1100px) {
+    .react-nav-inner {
+        grid-template-columns: 112px 1fr auto;
+    }
+
+    .react-nav-actions .react-nav-cta {
+        display: none;
+    }
+
+    .react-product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .react-hero-slide,
+    .react-about-grid,
+    .react-contact-grid,
+    .react-detail,
+    .react-editorial,
+    .react-cart,
+    .react-footer {
+        grid-template-columns: 1fr;
+    }
+
+    .react-hero-jewel {
+        display: none;
+    }
+}
+
+@media (max-width: 760px) {
+    .react-nav {
+        padding: 12px;
+    }
+
+    .react-nav-inner {
+        grid-template-columns: 104px 1fr auto;
+        border-radius: 22px;
+    }
+
+    .react-menu-button {
+        display: grid;
+        place-items: center;
+    }
+
+    .react-links {
+        position: absolute;
+        top: 76px;
+        right: 12px;
+        left: 12px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        border: 1px solid rgba(212,175,55,.24);
+        border-radius: 18px;
+        padding: 18px;
+        background: rgba(8,6,4,.94);
+        backdrop-filter: blur(18px);
+    }
+
+    .react-links.is-open {
+        display: flex;
+    }
+
+    .react-nav-actions {
+        justify-self: end;
+    }
+
+    .react-nav-actions a:not(.react-nav-cta) {
+        width: 36px;
+        height: 36px;
+    }
+
+    .react-hero-slide {
+        padding: 126px 20px 86px;
+    }
+
+    .react-hero-copy h1 {
+        font-size: clamp(3rem, 18vw, 5rem);
+    }
+
+    .react-metrics,
+    .react-collection-grid,
+    .react-product-grid,
+    .react-product-grid.compact,
+    .react-trust,
+    .react-testimonials,
+    .react-editorial-images,
+    .skeleton-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .react-section-heading {
+        align-items: start;
+        flex-direction: column;
+    }
+
+    .react-editorial-images {
+        min-height: auto;
+        gap: 18px;
+    }
+
+    .react-editorial-images a {
+        transform: none;
+    }
+
+    .react-cart-list article {
+        grid-template-columns: 76px 1fr;
+    }
+
+    .react-cart-list img {
+        width: 76px;
+        height: 76px;
+    }
+
+    .react-gallery-grid {
+        column-count: 1;
+    }
+}

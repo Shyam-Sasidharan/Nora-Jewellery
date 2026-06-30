@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1100" viewBox="0 0 900 1100" role="img" aria-label="Nora Jewellery placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#fffaf1"/>
+      <stop offset="1" stop-color="#ead8ad"/>
+    </linearGradient>
+    <radialGradient id="gem" cx=".5" cy=".35" r=".48">
+      <stop stop-color="#ffffff"/>
+      <stop offset=".52" stop-color="#d7b968"/>
+      <stop offset="1" stop-color="#8f6f2d"/>
+    </radialGradient>
+  </defs>
+  <rect width="900" height="1100" fill="url(#bg)"/>
+  <circle cx="450" cy="490" r="170" fill="none" stroke="#17130f" stroke-width="22"/>
+  <path d="M330 430h240l-52-118H382z" fill="url(#gem)" stroke="#17130f" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M382 312l68 118 68-118M330 430l120-118 120 118" fill="none" stroke="#17130f" stroke-width="10" opacity=".5"/>
+  <text x="450" y="790" text-anchor="middle" font-family="Georgia, serif" font-size="58" fill="#17130f">Nora</text>
+  <text x="450" y="844" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" letter-spacing="12" fill="#8f6f2d">JEWELLERY</text>
+</svg>
