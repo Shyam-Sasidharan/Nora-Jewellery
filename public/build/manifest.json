@@ -1,0 +1,32 @@
+{
+  "_index-DhXgJQ-f.js": {
+    "file": "assets/index-DhXgJQ-f.js",
+    "name": "index"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-CACuX_VR.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-B-tyYa2w.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "imports": [
+      "_index-DhXgJQ-f.js"
+    ]
+  },
+  "resources/js/react/main.jsx": {
+    "file": "assets/main-DsfHSJO_.js",
+    "name": "main",
+    "src": "resources/js/react/main.jsx",
+    "isEntry": true,
+    "imports": [
+      "_index-DhXgJQ-f.js"
+    ],
+    "css": [
+      "assets/main-BQnhqXRy.css"
+    ]
+  }
+}
