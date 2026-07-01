@@ -17,6 +17,7 @@ export const storefront = {
     contact: () => api.get('/contact').then((response) => response.data),
     delivery: () => api.get('/delivery').then((response) => response.data),
     sendContact: (payload) => api.post('/contact', payload).then((response) => response.data),
+    checkout: (payload) => api.post('/checkout', payload).then((response) => response.data),
 };
 
 export default api;

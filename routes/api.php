@@ -13,4 +13,5 @@ Route::prefix('storefront')->group(function () {
     Route::get('contact', [StorefrontController::class, 'contactDetails']);
     Route::get('delivery', [StorefrontController::class, 'delivery']);
     Route::post('contact', [StorefrontController::class, 'contact']);
+    Route::post('checkout', [StorefrontController::class, 'checkout']);
 });

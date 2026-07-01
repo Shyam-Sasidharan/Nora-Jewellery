@@ -641,6 +641,8 @@
 .react-product-tools input,
 .react-form input,
 .react-form textarea,
+.react-cart-checkout input,
+.react-cart-checkout textarea,
 .qty-stepper,
 .react-cart-list input {
     width: 100%;
@@ -649,6 +651,17 @@
     padding: 13px 14px;
     outline: none;
     background: #fff;
+}
+
+.react-cart-checkout {
+    display: grid;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.react-cart-checkout .react-gold-button {
+    width: 100%;
+    justify-content: center;
 }
 
 .react-about-grid,

@@ -43,6 +43,11 @@ export function StoreProvider({ children }) {
         });
     };
 
+    const clearCart = () => {
+        setCart([]);
+        write('nora_cart', []);
+    };
+
     const toggleWishlist = (product) => {
         setWishlist((items) => {
             const exists = items.some((item) => item.id === product.id);
@@ -58,6 +63,7 @@ export function StoreProvider({ children }) {
         addToCart,
         updateCart,
         removeFromCart,
+        clearCart,
         toggleWishlist,
         isWishlisted: (productId) => wishlist.some((item) => item.id === productId),
         cartCount: cart.reduce((sum, item) => sum + item.quantity, 0),

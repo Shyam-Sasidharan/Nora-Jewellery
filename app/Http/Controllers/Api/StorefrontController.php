@@ -6,11 +6,14 @@ use App\Http\Controllers\Controller;
 use App\Models\Banner;
 use App\Models\Category;
 use App\Models\ContactMessage;
+use App\Models\Order;
 use App\Models\GalleryImage;
 use App\Models\Product;
 use App\Models\SiteContent;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class StorefrontController extends Controller
 {
@@ -130,6 +133,103 @@ class StorefrontController extends Controller
         ], 201);
     }
 
+    public function checkout(Request $request): JsonResponse
+    {
+        $validated = $request->validate([
+            'customer_name' => ['required', 'string', 'max:140'],
+            'customer_email' => ['required', 'email', 'max:160'],
+            'customer_phone' => ['nullable', 'string', 'max:40'],
+            'shipping_address' => ['required', 'string', 'max:1200'],
+            'notes' => ['nullable', 'string', 'max:1200'],
+            'items' => ['required', 'array', 'min:1'],
+            'items.*.product_id' => ['required', 'integer', 'exists:products,id'],
+            'items.*.quantity' => ['required', 'integer', 'min:1'],
+        ]);
+
+        try {
+            $deliveryCharge = $this->deliveryCharge();
+
+            $order = DB::transaction(function () use ($validated, $deliveryCharge) {
+                $items = collect($validated['items'])
+                    ->map(fn ($item) => [
+                        'product_id' => (int) $item['product_id'],
+                        'quantity' => (int) $item['quantity'],
+                    ])
+                    ->groupBy('product_id')
+                    ->map(fn ($group) => $group->sum('quantity'));
+
+                $products = Product::active()
+                    ->whereIn('id', $items->keys())
+                    ->lockForUpdate()
+                    ->get()
+                    ->keyBy('id');
+
+                if ($products->count() !== $items->count()) {
+                    throw new \RuntimeException('Some products are no longer available.');
+                }
+
+                $subtotal = 0;
+
+                foreach ($items as $productId => $quantity) {
+                    $product = $products[$productId];
+
+                    if ($product->price_on_request || $product->price === null) {
+                        throw new \RuntimeException($product->name.' is available on request only.');
+                    }
+
+                    if ($product->stock_quantity < $quantity) {
+                        throw new \RuntimeException($product->name.' has only '.$product->stock_quantity.' in stock.');
+                    }
+
+                    $subtotal += (float) $product->price * $quantity;
+                }
+
+                $order = Order::create([
+                    'order_number' => 'NORA-'.now()->format('Ymd').'-'.strtoupper(Str::random(6)),
+                    'customer_name' => $validated['customer_name'],
+                    'customer_email' => $validated['customer_email'],
+                    'customer_phone' => $validated['customer_phone'] ?? null,
+                    'shipping_address' => $validated['shipping_address'],
+                    'notes' => $validated['notes'] ?? null,
+                    'subtotal' => $subtotal,
+                    'delivery_charge' => $deliveryCharge,
+                    'total' => $subtotal + $deliveryCharge,
+                    'status' => 'new',
+                ]);
+
+                foreach ($items as $productId => $quantity) {
+                    $product = $products[$productId];
+
+                    $order->items()->create([
+                        'product_id' => $product->id,
+                        'product_name' => $product->name,
+                        'product_sku' => $product->sku,
+                        'unit_price' => $product->price,
+                        'quantity' => $quantity,
+                        'line_total' => (float) $product->price * $quantity,
+                    ]);
+
+                    $product->decrement('stock_quantity', $quantity);
+                }
+
+                return $order;
+            });
+        } catch (\RuntimeException $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 422);
+        }
+
+        return response()->json([
+            'message' => 'Order placed successfully.',
+            'order' => [
+                'id' => $order->id,
+                'order_number' => $order->order_number,
+                'total' => $order->total,
+            ],
+        ], 201);
+    }
+
     private function productPayload(Product $product, bool $full = false): array
     {
         $images = $product->images->map(fn ($image) => [
@@ -223,6 +323,18 @@ class StorefrontController extends Controller
         }
 
         return asset('storage/'.$path);
+    }
+
+    private function deliveryCharge(): float
+    {
+        $delivery = SiteContent::byKey('delivery');
+        $data = $delivery?->data ?? [];
+
+        if ((bool) ($data['is_free_delivery'] ?? true)) {
+            return 0;
+        }
+
+        return max(0, (float) ($data['delivery_charge'] ?? 0));
     }
 
     private function testimonials(): array
