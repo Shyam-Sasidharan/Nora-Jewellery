@@ -4,7 +4,7 @@
     "name": "index"
   },
   "resources/css/app.css": {
-    "file": "assets/app-CACuX_VR.css",
+    "file": "assets/app-DmftDKjU.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -18,7 +18,7 @@
     ]
   },
   "resources/js/react/main.jsx": {
-    "file": "assets/main-DsfHSJO_.js",
+    "file": "assets/main-CERl98yv.js",
     "name": "main",
     "src": "resources/js/react/main.jsx",
     "isEntry": true,

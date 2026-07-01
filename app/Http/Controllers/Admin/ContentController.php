@@ -52,9 +52,9 @@ class ContentController extends Controller
                 'title' => 'Visit Nora Jewellery',
                 'content' => 'Book a private appointment or speak with our jewellery consultants.',
                 'data' => [
-                    'phone' => '+91 98765 43210',
-                    'email' => 'concierge@norajewellery.test',
-                    'address' => 'Nora Jewellery Studio, MG Road, Bengaluru',
+                    'phone' => '+91 8848254420',
+                    'email' => 'norajewels0523@gmail.com',
+                    'address' => 'Nora Jewels nss college(po) Nemmara, palakkad 678508',
                     'hours' => 'Monday to Saturday, 10:00 AM to 7:00 PM',
                 ],
             ]),

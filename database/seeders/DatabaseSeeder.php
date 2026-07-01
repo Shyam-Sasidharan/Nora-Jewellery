@@ -140,9 +140,9 @@ class DatabaseSeeder extends Seeder
                 'title' => 'Book A Private Jewellery Appointment',
                 'content' => 'Speak with Nora Jewellery consultants for bridal styling, custom designs, collection viewings, and gifting advice.',
                 'data' => [
-                    'phone' => '+91 98765 43210',
-                    'email' => 'concierge@norajewellery.test',
-                    'address' => 'Nora Jewellery Studio, MG Road, Bengaluru',
+                    'phone' => '+91 8848254420',
+                    'email' => 'norajewels0523@gmail.com',
+                    'address' => 'Nora Jewels nss college(po) Nemmara, palakkad 678508',
                     'hours' => 'Monday to Saturday, 10:00 AM to 7:00 PM',
                     'map_url' => '',
                 ],

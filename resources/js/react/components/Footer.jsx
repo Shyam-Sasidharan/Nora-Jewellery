@@ -22,9 +22,9 @@ export default function Footer() {
             </div>
             <div>
                 <h3>Visit</h3>
-                <p><MapPin size={16} /> Nora Jewellery Studio, MG Road, Bengaluru</p>
-                <p><Phone size={16} /> +91 98765 43210</p>
-                <p><Mail size={16} /> concierge@norajewellery.test</p>
+                <p><MapPin size={16} /> Nora Jewels nss college(po) Nemmara, palakkad 678508</p>
+                <p><Phone size={16} /> +91 8848254420</p>
+                <p><Mail size={16} /> norajewels0523@gmail.com</p>
             </div>
         </footer>
     );

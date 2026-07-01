@@ -14,9 +14,9 @@
     <div class="contact-card reveal">
         <p>{{ $contact?->content ?? 'Speak with our consultants for bridal, bespoke, or collection enquiries.' }}</p>
         <dl>
-            <div><dt>Phone</dt><dd>{{ $data['phone'] ?? '+91 98765 43210' }}</dd></div>
-            <div><dt>Email</dt><dd>{{ $data['email'] ?? 'concierge@norajewellery.test' }}</dd></div>
-            <div><dt>Address</dt><dd>{{ $data['address'] ?? 'Nora Jewellery Studio' }}</dd></div>
+            <div><dt>Phone</dt><dd>{{ $data['phone'] ?? '+91 8848254420' }}</dd></div>
+            <div><dt>Email</dt><dd>{{ $data['email'] ?? 'norajewels0523@gmail.com' }}</dd></div>
+            <div><dt>Address</dt><dd>{{ $data['address'] ?? 'Nora Jewels nss college(po) Nemmara, palakkad 678508' }}</dd></div>
             <div><dt>Hours</dt><dd>{{ $data['hours'] ?? 'Monday to Saturday, 10:00 AM to 7:00 PM' }}</dd></div>
         </dl>
     </div>

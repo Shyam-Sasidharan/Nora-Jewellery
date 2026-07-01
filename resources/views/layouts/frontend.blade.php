@@ -60,7 +60,7 @@
         <div class="footer-newsletter">
             <strong>Private Preview</strong>
             <p>Receive collection notes, bridal appointments, and first looks from Nora.</p>
-            <div><span>concierge@norajewellery.test</span></div>
+            <div><span>norajewels0523@gmail.com</span></div>
         </div>
     </footer>
 </body>
